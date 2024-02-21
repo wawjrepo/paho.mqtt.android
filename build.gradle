@@ -2,11 +2,15 @@
 
 buildscript {
     repositories {
-        jcenter()
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/google' }
         mavenCentral()
+        google()
+        mavenCentral()
+        jcenter()
     }
     dependencies {
-	    classpath 'com.android.tools.build:gradle:2.2.3'
+        classpath 'com.android.tools.build:gradle:8.2.1'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -14,8 +18,7 @@ buildscript {
 
 ext{
 
-    compileSdkVersion = 24
-    buildToolsVersion = '23.0.3'
+    compileSdkVersion = 28
 
 
     group = 'org.eclipse.paho'
@@ -57,10 +60,12 @@ println "SDK dir: $sdkDir"
 allprojects {
 
     repositories {
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        mavenCentral()
+        google()
+        mavenCentral()
         jcenter()
-        maven {
-            url "file://$sdkDir/extras/android/m2repository/"
-        }
     }
 
     version = rootProject.ext.serviceVersion
